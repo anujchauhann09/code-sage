@@ -1,0 +1,54 @@
+.details {
+  margin-top: 0.75rem;
+}
+
+.summary {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0;
+  transition: color var(--transition);
+}
+
+.summary:hover {
+  color: var(--accent);
+}
+
+.list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+}
+
+.fileName {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: 'Fira Code', 'Consolas', monospace;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.snippet {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

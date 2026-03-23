@@ -1,0 +1,110 @@
+.userRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.userBubble {
+  max-width: 72%;
+  background: var(--accent);
+  border-radius: 18px 18px 4px 18px;
+  padding: 0.7rem 1rem;
+}
+
+.userContent {
+  margin: 0;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.aiRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.aiAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.aiContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.aiText {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.codeBlock {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.875rem 1rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.codeBlock code {
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  color: var(--text-primary);
+}
+
+.inlineCode {
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 0.875em;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  color: var(--accent);
+}
+
+.systemRow {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.systemBubble {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1rem;
+  max-width: 90%;
+}
+
+.systemIcon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.systemContent {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #fca5a5;
+  line-height: 1.55;
+}
