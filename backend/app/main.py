@@ -3,7 +3,9 @@ import shutil
 import tempfile
 import zipfile
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from app.schemas.query_schema import QueryRequest
 from app.schemas.ingest_schema import GithubIngestRequest
 from app.retrieval.retriever import retrieve_context
@@ -11,6 +13,34 @@ from app.llm.gemini_llm import generate_answer
 from app.ingestion.pipeline import ingest_folder, ingest_github_repo
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.exception_handler(Exception)
+async def generic_exception_handler(request: Request, exc: Exception):
+    from app.utils.error_handler import handle_gemini_error, handle_pinecone_error
+
+    msg = str(exc)
+
+    if "RESOURCE_EXHAUSTED" in msg or "quota" in msg.lower():
+        try:
+            handle_gemini_error(exc)
+        except HTTPException as http_exc:
+            return JSONResponse(status_code=http_exc.status_code, content={"detail": http_exc.detail})
+
+    if "pinecone" in type(exc).__module__.lower():
+        try:
+            handle_pinecone_error(exc)
+        except HTTPException as http_exc:
+            return JSONResponse(status_code=http_exc.status_code, content={"detail": http_exc.detail})
+
+    return JSONResponse(status_code=500, content={"detail": f"Unexpected server error: {msg}"})
 
 
 @app.get("/")

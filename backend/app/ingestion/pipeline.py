@@ -18,6 +18,7 @@ def process_documents(documents, namespace: str):
         chunks = chunk_code(doc["content"])
 
         for chunk in chunks:
+            # get_embedding / upsert_vectors raise HTTPException on quota/API errors
             embedding = get_embedding(chunk)
             function_name = extract_function_name(chunk)
 
