@@ -90,7 +90,7 @@ FastAPI Backend                                                             │
 ## Project Structure
 
 ```
-codesage/
+code-sage/
 ├── backend/
 │   ├── app/
 │   │   ├── embeddings/
@@ -168,7 +168,7 @@ You will also need accounts and API keys for:
 
 ```bash
 git clone https://github.com/anujchauhann09/code-sage.git
-cd codesage
+cd code-sage
 ```
 
 ### 2. Backend setup
